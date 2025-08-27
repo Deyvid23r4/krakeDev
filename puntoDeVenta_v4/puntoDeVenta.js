@@ -24,8 +24,8 @@ calcularValorTotal = function () {
     // Tomar en cuenta el orden de como pasa los parametos de la funcion y colocar bien
     // los parametros cuando invoca la funcion.
     valorSubtotal=calcularSubtotal(precioProducto,cantidad)
-    //5. Mostrar valorSubtotal en el componente lblSubtotal
-    mostrarTexto("lblSubtotal", valorSubtotal)
+        //5. Mostrar valorSubtotal en el componente lblSubtotal
+        mostrarTexto("lblSubtotal", valorSubtotal)
     // Utilizar mostrarTexto
         /*{}
         Caso de prueba: 
@@ -36,8 +36,8 @@ calcularValorTotal = function () {
      */
     //6. Invocar a calcularValorDescuento y lo que devuelve guardar en la variable valorDescuento
     valorDescuento=calcularValorDescuento(valorSubtotal,porcentajeDescuento)
-    //7. Mostrar el resultado en el componente lblDescuento
-    mostrarTexto("lblDescuento", valorDescuento)
+        //7. Mostrar el resultado en el componente lblDescuento
+        mostrarTexto("lblDescuento", valorDescuento)
     /*
         Caso de prueba: 
             - cantidad: 10 
@@ -48,8 +48,8 @@ calcularValorTotal = function () {
      */
     //8. Invocar a calcularIVA y lo que devuelve guardar en la variable valorIVA
     valorIVA=calcularIva(valorSubtotal-valorDescuento)
-    // El IVA debe calcularse sobre el valor del subtotal menos el descuento
-    mostrarTexto("lblValorIVA", valorIVA)
+        // El IVA debe calcularse sobre el valor del subtotal menos el descuento
+        mostrarTexto("lblValorIVA", valorIVA)
     //9. Mostrar el resultado en el componente lblValorIVA    
         /*
             Caso de prueba: 
@@ -67,7 +67,9 @@ calcularValorTotal = function () {
             Si el caso de prueba es exitoso, hacer un commit
         */
     //10. Invocar a calcularTotal y lo que devuelve guardar en la variable valorTotal
+    valorTotal=calcularTotal(valorSubtotal,valorDescuento,valorIVA) 
     //11. Mostrar el resultado en el componente lblTotal
+    mostrarTexto("lblTotal",valorTotal)
     /*
         Caso de prueba: 
             - cantidad: 10
