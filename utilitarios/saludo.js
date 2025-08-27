@@ -6,7 +6,13 @@ saludar=function(){
     let mensaje="mi nombre es "+ nombre+" "+apellido+" tengo "+ edad+" anios y mido "+estatura+" m."
     mostrarTexto("txtResultado",mensaje);
     mostrarImg("idImg", "./imagenes/saludo.gif")
+    mostrarTxtEnCaja("idNombre","")
 
+}
+
+mostrarTxtEnCaja=function(idComponente, mensaje){
+    let componente=document.getElementById(idComponente);
+    componente.value=mensaje
 }
 
 mostrarImg=function(idComponente, newImg){
