@@ -4,9 +4,9 @@ function obtenerProvincia(placa) {
     if (primeraLetra == 'A') {
         return "Azuay"
     } else if (primeraLetra == 'B') {
-        return "Bolívar"
+        return "Bolivar"
     } else if (primeraLetra == 'U') {
-        return "Cañar"
+        return "Caniar"
     } else if (primeraLetra == 'C') {
         return "Carchi"
     } else if (primeraLetra == 'X') {
@@ -18,7 +18,7 @@ function obtenerProvincia(placa) {
     } else if (primeraLetra == 'E') {
         return "Esmeraldas"
     } else if (primeraLetra == 'W') {
-        return "Galápagos"
+        return "Galapagos"
     } else if (primeraLetra == 'G') {
         return "Guayas"
     } else if (primeraLetra == 'I') {
@@ -26,9 +26,9 @@ function obtenerProvincia(placa) {
     } else if (primeraLetra == 'L') {
         return "Loja"
     } else if (primeraLetra == 'R') {
-        return "Los Ríos"
+        return "Los Rios"
     } else if (primeraLetra == 'M') {
-        return "Manabí"
+        return "Manabi"
     } else if (primeraLetra == 'V') {
         return "Morona Santiago"
     } else if (primeraLetra == 'N') {
@@ -38,7 +38,7 @@ function obtenerProvincia(placa) {
     } else if (primeraLetra == 'P') {
         return "Pichincha"
     } else if (primeraLetra == 'K') {
-        return "Sucumbíos"
+        return "Sucumbios"
     } else if (primeraLetra == 'Q') {
         return "Orellana"
     } else if (primeraLetra == 'T') {
@@ -49,5 +49,37 @@ function obtenerProvincia(placa) {
         return "Santa Elena"
     } else {
         return null
+    }
+}
+
+obtenerTipoVehiculo = function (placa) {
+    let segundaLetra = placa.charAt(1)
+    if (segundaLetra == 'A' || segundaLetra == 'Z') {
+        return "Vehiculo comercial"
+    } else if (segundaLetra == 'E') {
+        return "Vehiculo gubernamental"
+    } else if (segundaLetra == 'X') {
+        return "Vehiculo de uso oficial"
+    } else if (segundaLetra == 'S') {
+        return "Vehiculo de gobierno provincial"
+    } else if (segundaLetra == 'M') {
+        return "Vehiculo municipal"
+    } else {
+        return "Vehiculo particular"
+    }
+}
+
+obtenerDiaPicoYPlaca = function (placa) {
+    ultimoDigito = placa.charAt(placa.length-1)
+    if (ultimoDigito == 1 || ultimoDigito == 2) {
+        return "Lunes"
+    }else if (ultimoDigito == 3 || ultimoDigito == 4) {
+        return "Martes"
+    }else if (ultimoDigito == 5 || ultimoDigito == 6) {
+        return "Miercoles"
+    }else if (ultimoDigito == 7 || ultimoDigito == 8) {
+        return "Jueves"
+    }else if (ultimoDigito == 9 || ultimoDigito == 0) {
+        return "Viernes"
     }
 }
