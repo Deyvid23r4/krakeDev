@@ -24,6 +24,11 @@ validarPlaca = function () {
     }
 }
 
-limpiar=function(){
-    mostrarTextoEnCaja()
+limpiar = function () {
+    mostrarTextoEnCaja("lblPlaca", "")
+    mostrarTexto("lblValidar","")
+    mostrarTexto("lblMensaje","")
+    mostrarTexto("lblProvincia","")
+    mostrarTexto("lblTipo", "")
+    mostrarTexto("lblPico", "")
 }

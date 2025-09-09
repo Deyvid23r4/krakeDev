@@ -82,4 +82,5 @@ obtenerDiaPicoYPlaca = function (placa) {
     }else if (ultimoDigito == 9 || ultimoDigito == 0) {
         return "Viernes"
     }
+    
 }
