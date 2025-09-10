@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="juego.js"></script>
+    <script src="serviciosJuego.js"></script>
+    <script src="utilitarios.js"></script>
+    <link rel="stylesheet" href="juego.css">
+</head>
+
+<body>
+    <div class="titulo">JUEGA PIEDRA PAPEL O TIJERA</div>
+    <div class="puntajes">
+
+        <div class="puntajeUser">
+            <div>PUNTAJE USER:</div>
+            <div id="lblUser">0</div>
+        </div>
+
+        <div class="resultadoFinal">
+            <div id="lblResultadoFinal">?</div>
+        </div>
+
+        <div class="puntajePc">
+            <div>PUNTAJE PC:</div>
+            <div id="lblPc">0</div>
+        </div>
+
+    </div>
+    <div class="principal">
+        <div class="imgUsuario">
+            <img src="./imagenes/piedra.png" width="190px" onclick="jugar('piedra')" class="estiloImg">
+            <img src="./imagenes/papel.png" width="200px" onclick="jugar('papel')" class="estiloImg">
+            <img src="./imagenes/tijera.png" width="150px" onclick="jugar('tijera')" class="estiloImg">
+        </div>
+        <div>
+            <div class="resultado" id="lblResultado">?</div>
+        </div>
+
+        <div class="imgUsuario">
+            <img src="" width="160px" id="imgPc">
+        </div>
+    </div>
+
+    <div class="contenedorBoton">
+        <input type="button" value="NUEVA PARTIDA" onclick="limpiar();" class="estiloBoton">
+    </div>
+
+</body>
+
+
+</html>

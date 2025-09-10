@@ -1,0 +1,115 @@
+body {
+    background-color: aqua;
+}
+
+.principal {
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 70px;
+}
+
+.titulo {
+    color: #0f1ca9;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 30px;
+    font-size: 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.puntajes {
+    display: flex;
+    background-color: aqua;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.puntajeUser {
+    color: #0f1ca9a6;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: flex-start;
+    font-size: 40px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.puntajePc {
+    color: #0f1ca9a6;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-size: 40px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.resultadoFinal {
+    color: #0f1ca9a6;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    font-size: 40px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.imgUsuario {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.estiloImg {
+    cursor: pointer;
+}
+
+.resultado {
+    color: #106601;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 30px;
+    font-size: 40px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.contenedorBoton{
+    display: flex;
+    flex:1;
+    justify-content: center;
+    margin: 30px;
+}
+
+.estiloBoton{
+    background-color: #0015fe; 
+    border: none;
+    color: hsla(68, 100%, 50%, 0.729);
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+    width: 150px;
+    height: 50px;
+    margin-right:40px ;
+}
+
+.estiloBoton:hover {
+    background-color: #0015fe73; 
+    color: hsla(68, 100%, 50%, 0.729);
+    border:1px;
+    border-color: #4CAF50;
+}
+
+.estiloBoton:active{
+    background-color: #002576; 
+    border: none;
+    color: hsla(68, 100%, 50%, 0.729);
+    padding: 15px;
+    text-align: center;
+    font-size: 16px;
+}
