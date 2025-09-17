@@ -3,7 +3,7 @@ let palabraSecreta = ""
 let intentos = 0;
 let coincidencias = 0;
 let letrasEncontradas = 0;
-let errores=0;
+let errores = 0;
 esMayuscula = function (caracter) {
     let caracterAscii = caracter.charCodeAt(0)
     if (caracterAscii >= 65 || caracterAscii <= 90) {
@@ -55,12 +55,11 @@ validar = function (letra) {
             mostrarLetra(letra, i)
             letrasEncontradas++
             coincidencias++
-            letrasEncontradas=intentos
+            letrasEncontradas = intentos
         }
     }
     if (letrasEncontradas != intentos) {
-        letrasEncontradas==intentos+1
-        alert("LA LETRA NO ES PARTE DE LA PALABRA")
+        letrasEncontradas == intentos + 1
         errores++
     }
 }
@@ -70,12 +69,6 @@ ingresarLetra = function () {
     intentos++
     if (letra.charCodeAt(0) >= 65 && letra.charCodeAt(0) <= 90 && letra.length == 1) {
         validar(letra);
-        if (coincidencias == 5) {
-            alert("HA GANADO")
-        }
-        if (intentos == 10) {
-            alert("HA PERDIDO")
-        }
     } else {
         alert("SOLO SE ACEPTA UNA MAYUSCULA")
         letrasEncontradas++
@@ -83,24 +76,30 @@ ingresarLetra = function () {
     mostrarAhorcado()
 }
 
-mostrarAhorcado = function(){
-    if (errores==1){
-        mostrarImagen("ahorcadoImagen","Ahorcado_01.png")
-    }else if (errores==2){
-        mostrarImagen("ahorcadoImagen","Ahorcado_02.png")
-    }else if (errores==3){
-        mostrarImagen("ahorcadoImagen","Ahorcado_03.png")
-    }else if (errores==4){
-        mostrarImagen("ahorcadoImagen","Ahorcado_04.png")
-    }else if (errores==5){
-        mostrarImagen("ahorcadoImagen","Ahorcado_05.png")
-    }else if (errores==6){
-        mostrarImagen("ahorcadoImagen","Ahorcado_06.png")
-    }else if (errores==7){
-        mostrarImagen("ahorcadoImagen","Ahorcado_07.png")
-    }else if (errores==8){
-        mostrarImagen("ahorcadoImagen","Ahorcado_08.png")
-    }else if (errores==9){
-        mostrarImagen("ahorcadoImagen","Ahorcado_09.png")
+mostrarAhorcado = function () {
+    if (errores == 1) {
+        mostrarImagen("ahorcadoImagen", "Ahorcado_01.png")
+    } else if (errores == 2) {
+        mostrarImagen("ahorcadoImagen", "Ahorcado_02.png")
+    } else if (errores == 3) {
+        mostrarImagen("ahorcadoImagen", "Ahorcado_03.png")
+    } else if (errores == 4) {
+        mostrarImagen("ahorcadoImagen", "Ahorcado_04.png")
+    } else if (errores == 5) {
+        mostrarImagen("ahorcadoImagen", "Ahorcado_05.png")
+    } else if (errores == 6) {
+        mostrarImagen("ahorcadoImagen", "Ahorcado_06.png")
+    } else if (errores == 7) {
+        mostrarImagen("ahorcadoImagen", "Ahorcado_07.png")
+    } else if (errores == 8) {
+        mostrarImagen("ahorcadoImagen", "Ahorcado_08.png")
+    } else if (errores == 9) {
+        mostrarImagen("ahorcadoImagen", "Ahorcado_09.png")
+    } 
+    if (coincidencias == 5) {
+        mostrarImagen("ahorcadoImagen", "ganador.gif")
+    }
+    if (intentos == 10) {
+        mostrarImagen("ahorcadoImagen", "gameOver.gif")
     }
 }
