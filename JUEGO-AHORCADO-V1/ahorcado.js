@@ -31,15 +31,15 @@ guardarPalabra = function () {
 
 mostrarLetra = function (letra, posicion) {
     if (posicion == 0) {
-        mostrarTexto(letra, "div0");
-    } else if (posicion == 1) {
-        mostrarTexto(letra, "div1");
-    } else if (posicion == 2) {
-        mostrarTexto(letra, "div2");
-    } else if (posicion == 3) {
-        mostrarTexto(letra, "div3");
-    } else if (posicion == 4) {
-        mostrarTexto(letra, "div4");
+        mostrarTexto("div0", letra);
+    }else if (posicion == 1) {
+        mostrarTexto("div1", letra);
+    }else if (posicion == 2) {
+        mostrarTexto("div2", letra);
+    }else if (posicion == 3) {
+        mostrarTexto("div3", letra);
+    }else if (posicion == 4) {
+        mostrarTexto("div4", letra);
     }
 }
 
@@ -55,3 +55,11 @@ validar = function (letra) {
     }
 }
 
+ingresarLetra = function () {
+    let letra = recuperarTexto("txtLetra")
+    if (letra.charCodeAt(0) >= 65 && letra.charCodeAt(0) <= 90){
+        validar(letra);
+    }else{
+        alert("SOLO SE ACEPTA MAYUSCULAS")
+    }
+}
