@@ -22,9 +22,24 @@ guardarPalabra = function () {
             contarMayusculas++
         }
     }
-    if (contarMayusculas != palabra.length ) {
+    if (contarMayusculas != palabra.length) {
         alert("Debe ingresar una palabra de 5 letras mayusculas")
-    }else{
-        palabraSecreta=palabra
+    } else {
+        palabraSecreta = palabra
     }
+}
+
+mostrarLetra = function (letra, posicion) {
+    if (posicion == 0) {
+        mostrarTexto(letra, "div0");
+    }else if (posicion == 1) {
+        mostrarTexto(letra, "div1");
+    }else if (posicion == 2) {
+        mostrarTexto(letra, "div2");
+    }else if (posicion == 3) {
+        mostrarTexto(letra, "div3");
+    }else if (posicion == 4) {
+        mostrarTexto(letra, "div4");
+    }
+
 }
