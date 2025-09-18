@@ -2,7 +2,6 @@ obtenerAleatorio = function () {
     let random = Math.random()
     random = random * 3 + 1
     random = parseInt(random)
-    console.log(random)
     return random
 }
 
