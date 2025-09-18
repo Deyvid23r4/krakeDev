@@ -27,7 +27,6 @@ ejecutarInvertir = function () {
     invertirCadena(mensaje)
 }
 
-
 invertirCadena = function (cadena) {
     let caracter;
     let resultado = ""
@@ -36,4 +35,34 @@ invertirCadena = function (cadena) {
         resultado = resultado + caracter
         mostrarTexto("lblInverso", resultado)
     }
+}
+
+buscarLetrea = function (cadena, letra) {
+    let letraIternada
+    let existeLetra = false
+    for (let i = 0; i < cadena.length; i++) {
+        letraIternada = cadena.charAt(i);
+        if (letraIternada == letra) {
+            existeLetra = true
+        }
+    }
+    if (existeLetra == true) {
+        console.log("Existe")
+        return true
+    } else {
+        console.log("No Existe")
+        return false
+    }
+}
+
+contarMayusculas = function (cadena) {
+    let letra;
+    let contarMayuscula = 0;
+    for (let i = 0; i < cadena.length; i++) {
+        letra = cadena.charAt(i);
+        if (esMayuscula(letra)){
+            contarMayuscula++;
+        }
+    }
+    console.log(contarMayuscula);
 }
