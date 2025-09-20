@@ -17,6 +17,7 @@ recorrerArreglo = function () {
 probarAgregar = function () {
     let notaRecuperada = recuperarInt("txtNotas")
     agregarNota(notaRecuperada)
+    mostrarNotas()
 }
 
 agregarNota = function (nota) {
@@ -35,5 +36,28 @@ calcularPromedio = function () {
 
 ejecutarPromedio = function () {
     let promedio = calcularPromedio()
-    mostrarTexto("lblPromedio",promedio)
+    mostrarTexto("lblPromedio", promedio)
+}
+
+generarTabla = function () {
+    let contenidoTabla = "";
+    let cmpTabla = document.getElementById("table")
+    contenidoTabla += "<table><tr><td>UNO</td></tr>" + "<tr><td>DOS</td></tr></table>"
+    cmpTabla.innerHTML = contenidoTabla
+}
+
+mostrarNotas = function () {
+    let contenidoTabla = "";
+    let cmpTabla = document.getElementById("table")
+    let miNota
+    contenidoTabla += "<table><tr><th>NOTAS</th></tr>"
+    for (let i = 0; i < notas.length; i++) {
+        miNota = notas[i];
+        contenidoTabla += "<tr><td>"
+        contenidoTabla += miNota
+        contenidoTabla += "</td></tr>"
+    }
+    contenidoTabla += "</table>"
+
+    cmpTabla.innerHTML = contenidoTabla
 }
