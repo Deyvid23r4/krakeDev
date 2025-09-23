@@ -87,15 +87,21 @@ tbody tr:nth-child(odd) {
   }
   
   tbody tr {
-    background-image: url(noise.png);
+    background-image: url();
   }
   
   table {
     background-color: #0b0c0c;
     width: 100%;
   }
+  th{
+    color: #00046a;
+    font-family: 'Times New Roman', Times, serif;
+  }
   td{
     text-align: center;
+    color: #000000;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
   .areaTabla{
     margin-top: 20px;
