@@ -124,7 +124,7 @@ guardar = function () {
             alert("EMPLEADO MODIFICADO EXITOSAMENTE");
             mostrarEmpleado();
         }
-    }   
+    }
 
 }
 
@@ -216,4 +216,21 @@ mostrarOpcionResumen = function () {
     mostrarComponente("divResumen");
     ocultarComponente("divEmpleado");
     ocultarComponente("divRol");
+}
+
+limpiar = function () {
+    mostrarTextoEnCaja("txtCedula", "");
+    mostrarTextoEnCaja("txtNombre", "");
+    mostrarTextoEnCaja("txtApellido", "");
+    mostrarTextoEnCaja("txtSueldo", "");
+    mostrarTextoEnCaja("txtBusquedaCedula", "");
+
+    esNuevo = false
+
+    deshabilitarComponente('txtCedula');
+    deshabilitarComponente('txtNombre');
+    deshabilitarComponente('txtApellido');
+    deshabilitarComponente('txtSueldo');
+    deshabilitarComponente('btnGuardar');
+
 }
