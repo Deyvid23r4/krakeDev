@@ -160,7 +160,7 @@ tbody tr:nth-child(odd) {
     padding: 10px;
     display: flex;
     flex-direction: row;
-    justify-content: right;
+    justify-content: left;
     font-family: Arial, Helvetica, sans-serif;
 }
 .tituloCampo{
