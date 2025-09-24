@@ -4,7 +4,20 @@ let empleados = [
     { cedula: "0914632123", nombre: "Luisa", apellido: "Gonzalez", sueldo: 900.0 },
     { cedula: "1734567890", nombre: "Pedro", apellido: "Ramirez", sueldo: 800.0 }
 ]
+//funciones de roles
+buscarPorRol = function () {
+    let buscar = recuperarTexto("txtBusquedaCedulaRol")
+    let empleadoEncontrado = buscarEmpleado(buscar)
+    if (empleadoEncontrado != null) {
+        mostrarTexto("infoCedula",empleadoEncontrado.cedula)
+        mostrarTexto("infoNombre",empleadoEncontrado.nombre+" "+empleadoEncontrado.apellido)
+        mostrarTexto("infoSueldo",empleadoEncontrado.sueldo)
+    }else{
+        alert("EL EMPLEADO NO EXISTE")
+    }
+}
 
+//funciones de empleado
 ejecutarBusqueda = function () {
     let cedulaBuscar = recuperarTexto("txtBusquedaCedula");
     let empleadoRecuperado = buscarEmpleado(cedulaBuscar);
