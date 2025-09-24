@@ -96,6 +96,7 @@ guardar = function () {
         if (seAgrego === true) {
             mostrarEmpleado()
             alert("EMPLEADO GUARDADO CORRECTAMENTE")
+            desabilitarCajasYGuardar()
         } else {
             alert("YA EXISTE EL EMPLEADO CON LA CEDULA: " + cedula)
         }
@@ -137,14 +138,6 @@ buscarEmpleado = function (cedula) {
     }
 }
 
-ejecutarNuevo = function () {
-    habilitarComponente("txtCedula");
-    habilitarComponente("txtNombre");
-    habilitarComponente("txtApellido");
-    habilitarComponente("txtSueldo");
-    habilitarComponente("btnGuardar");
-}
-
 mostrarEmpleado = function () {
     let empleadosencontrados
     let cmptabla = document.getElementById("tablaEmpleados")
@@ -162,12 +155,24 @@ mostrarEmpleado = function () {
     }
     contenidoTabla += "</table>"
     cmptabla.innerHTML = contenidoTabla
+    desabilitarCajasYGuardar()
+}
+
+ejecutarNuevo = function () {
+    habilitarComponente("txtCedula");
+    habilitarComponente("txtNombre");
+    habilitarComponente("txtApellido");
+    habilitarComponente("txtSueldo");
+    habilitarComponente("btnGuardar");
+    esNuevo=true;
+}
+
+desabilitarCajasYGuardar = function () {
     deshabilitarComponente('txtCedula');
     deshabilitarComponente('txtNombre');
     deshabilitarComponente('txtApellido');
     deshabilitarComponente('txtSueldo');
     deshabilitarComponente('btnGuardar');
-
 }
 
 mostrarOpcionEmpleado = function () {
