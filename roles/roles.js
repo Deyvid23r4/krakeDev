@@ -5,9 +5,27 @@ let empleados = [
     { cedula: "1734567890", nombre: "Pedro", apellido: "Ramirez", sueldo: 800.0 }
 ]
 
+ejecutarBusqueda = function () {
+    let cedulaBuscar = recuperarTexto("txtBusquedaCedula");
+    let empleadoRecuperado = buscarEmpleado(cedulaBuscar);
+    if (empleadoRecuperado == null) {
+        alert("EMPLEADO NO EXISTE")
+    } else {
+        mostrarTextoEnCaja("txtCedula", empleadoRecuperado.cedula);
+        mostrarTextoEnCaja("txtNombre", empleadoRecuperado.nombre);
+        mostrarTextoEnCaja("txtApellido", empleadoRecuperado.apellido);
+        mostrarTextoEnCaja("txtSueldo", empleadoRecuperado.sueldo);
+
+        deshabilitarComponente("txtCedula");
+        habilitarComponente("txtNombre");
+        habilitarComponente("txtApellido");
+        habilitarComponente("txtSueldo");
+        habilitarComponente("btnGuardar");
+    }
+}
+
 guardar = function () {
     let seAgrego = false
-
     cedula = recuperarTexto("txtCedula");
     nombre = recuperarTexto("txtNombre");
     apellido = recuperarTexto("txtApellido");
@@ -88,19 +106,26 @@ guardar = function () {
         }
     }
     let crearEmpleado = { cedula: cedula, nombre: nombre, apellido: apellido, sueldo: sueldo }
-    buscarEmpleado(cedula)
     if (cedulaEsValida === true && nombreEsValido === true && apellidoEsValido === true && sueldoEsValido === true) {
         if (esNuevo === true) {
             seAgrego = agregarEmpleado(crearEmpleado)
         }
         if (seAgrego === true) {
-            mostrarEmpleado()
-            alert("EMPLEADO GUARDADO CORRECTAMENTE")
-            desabilitarCajasYGuardar()
+            mostrarEmpleado();
+            alert("EMPLEADO GUARDADO CORRECTAMENTE");
+            desabilitarCajasYGuardar();
+            esNuevo = false;
         } else {
             alert("YA EXISTE EL EMPLEADO CON LA CEDULA: " + cedula)
+            let empleadoRecuperado = buscarEmpleado(crearEmpleado.cedula);
+            empleadoRecuperado.nombre = crearEmpleado.nombre;
+            empleadoRecuperado.apellido = crearEmpleado.apellido;
+            empleadoRecuperado.sueldo = crearEmpleado.sueldo;
+            alert("EMPLEADO MODIFICADO EXITOSAMENTE");
+            mostrarEmpleado();
         }
-    }
+    }   
+
 }
 
 agregarEmpleado = function (empleado) {
@@ -118,8 +143,6 @@ agregarEmpleado = function (empleado) {
     }
 }
 
-
-
 buscarEmpleado = function (cedula) {
     let empleadoBuscado = "";
     let empleadosIguales = 0;
@@ -127,6 +150,9 @@ buscarEmpleado = function (cedula) {
         empleadoBuscado = empleados[i];
         if (empleadoBuscado.cedula === cedula) {
             empleadosIguales++
+            if (empleadosIguales == 1) {
+                break
+            }
         }
     }
     if (empleadosIguales == 0) {
@@ -164,7 +190,7 @@ ejecutarNuevo = function () {
     habilitarComponente("txtApellido");
     habilitarComponente("txtSueldo");
     habilitarComponente("btnGuardar");
-    esNuevo=true;
+    esNuevo = true;
 }
 
 desabilitarCajasYGuardar = function () {
