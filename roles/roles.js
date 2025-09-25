@@ -6,6 +6,28 @@ let empleados = [
 ]
 let rol = [
 ]
+
+//mostrar totales
+
+mostrarTotales = function () {
+    let rolEncontrado;
+    let totalEmpleado = 0;
+    let totalEmpleador = 0;
+    let totalPagar = 0;
+    let totalNomina
+    for (let i = 0; i < rol.length; i++) {
+        rolEncontrado = rol[i]
+        totalEmpleado += rolEncontrado.aporteEmpleado;
+        totalEmpleador += rolEncontrado.aporteEmpleador;
+    }
+    totalPagar = totalEmpleado + totalEmpleador
+    totalNomina=totalPagar+totalEmpleado+totalEmpleador
+    mostrarTexto("infoTotalPago", totalPagar.toFixed(2))
+    mostrarTexto("infoAporteEmpresa", totalEmpleador)
+    mostrarTexto("infoAporteEmpleado", totalEmpleado)
+    mostrarTexto("infoNomina",totalNomina)
+}
+
 //funciones de roles
 
 guardarRol = function () {
@@ -24,11 +46,6 @@ guardarRol = function () {
         rolNuevo.aporteEmpleado = aporteIess,
         rolNuevo.aporteEmpleador = aporteEmpleadorCalculado,
         agregarRol(rolNuevo);
-}
-
-calcularAporteEmpeador = function (sueldo) {
-    let aporteEmpleador = sueldo * 0.1115
-    return aporteEmpleador
 }
 
 agregarRol = function (rolIngresado) {
@@ -83,17 +100,6 @@ calcularRol = function () {
     }
 }
 
-calcularValorAPagar = function (sueldo, aporteIess, descuento) {
-    let valorAPagar = sueldo - aporteIess;
-    valorAPagar = valorAPagar - descuento;
-    return valorAPagar
-}
-
-calcularAporteEmpleado = function (sueldo) {
-    let aporte = sueldo * 0.0945;
-    return aporte
-}
-
 buscarPorRol = function () {
     let buscar = recuperarTexto("txtBusquedaCedulaRol")
     let empleadoEncontrado = buscarEmpleado(buscar)
@@ -104,6 +110,24 @@ buscarPorRol = function () {
     } else {
         alert("EL EMPLEADO NO EXISTE")
     }
+}
+
+calcularValorAPagar = function (sueldo, aporteIess, descuento) {
+    let valorAPagar = sueldo - aporteIess;
+    valorAPagar = valorAPagar - descuento;
+    return valorAPagar
+}
+
+//calculo de aportes
+
+calcularAporteEmpeador = function (sueldo) {
+    let aporteEmpleador = (sueldo * 11.15)/100
+    return aporteEmpleador
+}
+
+calcularAporteEmpleado = function (sueldo) {
+    let aporte = sueldo * 0.0945;
+    return aporte
 }
 
 //funciones de empleado
@@ -265,7 +289,7 @@ buscarEmpleado = function (cedula) {
         return empleadoBuscado
     }
 }
-
+// crear tablas de empleado y roles
 mostrarEmpleado = function () {
     let empleadosencontrados
     let cmptabla = document.getElementById("tablaEmpleados")
@@ -285,6 +309,28 @@ mostrarEmpleado = function () {
     cmptabla.innerHTML = contenidoTabla
     desabilitarCajasYGuardar()
 }
+
+mostrarRoles = function () {
+    let empleadoEncontrado
+    let cmpTabla = document.getElementById("tablaResumen")
+    let contenidoTabla = "<table><tr><th>CEDULA</th>" +
+        "<th>NOMBRE</th>" +
+        "<th>VALOR A PAGAR</th>" +
+        "<th>APORTE EMPLEADO</th>" +
+        "<th>APORTE EMPLEADOR</th></tr>"
+    for (let i = 0; i < rol.length; i++) {
+        empleadoEncontrado = rol[i];
+        contenidoTabla += "<tr>" +
+            "<td>" + empleadoEncontrado.cedula + "</td>" +
+            "<td>" + empleadoEncontrado.nombre + "</td>" +
+            "<td>" + empleadoEncontrado.valorAPagar + "</td>" +
+            "<td>" + empleadoEncontrado.aporteEmpleado + "</td>" +
+            "<td>" + empleadoEncontrado.aporteEmpleador + "</td></tr>"
+    }
+    contenidoTabla += "</table>";
+    cmpTabla.innerHTML = contenidoTabla
+}
+// abilitar, desabilitar y mostrar complementos pantallas etc..
 
 ejecutarNuevo = function () {
     habilitarComponente("txtCedula");
@@ -314,12 +360,17 @@ mostrarOpcionRol = function () {
     ocultarComponente("divEmpleado");
     ocultarComponente("divResumen");
     deshabilitarComponente("botonGuardar");
+    mostrarRoles()
 }
 mostrarOpcionResumen = function () {
     mostrarComponente("divResumen");
     ocultarComponente("divEmpleado");
     ocultarComponente("divRol");
+    mostrarRoles()
+    mostrarTotales()
 }
+
+//limpiar 
 
 limpiar = function () {
     mostrarTextoEnCaja("txtCedula", "");
