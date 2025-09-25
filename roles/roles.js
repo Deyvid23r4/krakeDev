@@ -5,14 +5,40 @@ let empleados = [
     { cedula: "1734567890", nombre: "Pedro", apellido: "Ramirez", sueldo: 800.0 }
 ]
 //funciones de roles
+
+calcularRol = function () {
+    let sueldo = recuperarFloatDiv("infoSueldo")
+    let descuento = recuperarFloat("txtDescuentos")
+    if (descuento >= 0 && descuento <= sueldo) {
+        let aporte = calcularAporteEmpleado(sueldo);
+        let valorPagar = calcularValorAPagar(sueldo, aporte, descuento);
+        mostrarTexto("infoIESS", aporte);
+        mostrarTexto("infoPago", valorPagar);
+        mostrarTexto("lblErrorDescuentos", "");
+    } else {
+        mostrarTexto("lblErrorDescuentos", "INGRESE UN DESCUENTO ENTRE 0 Y " + sueldo);
+    }
+}
+
+calcularValorAPagar = function (sueldo, aporteIess, descuento) {
+    let valorAPagar = sueldo - aporteIess;
+    valorAPagar = valorAPagar - descuento;
+    return valorAPagar
+}
+
+calcularAporteEmpleado = function (sueldo) {
+    let aporte = sueldo * 0.0945;
+    return aporte
+}
+
 buscarPorRol = function () {
     let buscar = recuperarTexto("txtBusquedaCedulaRol")
     let empleadoEncontrado = buscarEmpleado(buscar)
     if (empleadoEncontrado != null) {
-        mostrarTexto("infoCedula",empleadoEncontrado.cedula)
-        mostrarTexto("infoNombre",empleadoEncontrado.nombre+" "+empleadoEncontrado.apellido)
-        mostrarTexto("infoSueldo",empleadoEncontrado.sueldo)
-    }else{
+        mostrarTexto("infoCedula", empleadoEncontrado.cedula)
+        mostrarTexto("infoNombre", empleadoEncontrado.nombre + " " + empleadoEncontrado.apellido)
+        mostrarTexto("infoSueldo", empleadoEncontrado.sueldo)
+    } else {
         alert("EL EMPLEADO NO EXISTE")
     }
 }
